@@ -1,211 +1,884 @@
-<!-- ВЕРСИЯ 3: раскрытие переписано по документам компании, ссылки на PDF --><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ru">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="description" content="Бесплатная консультация по продукции Greenleaf для дома и ухода. Подбор 2–3 средств под вашу задачу без давления.">
-<meta name="theme-color" content="#101815">
-<title>Greenleaf — Личный подбор эко-средств</title>
-<style>
-  :root { --bg:#f6f8f5; --card:#ffffff; --ink:#1d2a22; --muted:#5b6b61; --accent:#2e7d4f; --accent-dark:#21603b; --border:#dfe7e1; }
-  * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; scroll-padding-top: 70px; }
-  body { margin:0; font-family: -apple-system, "Segoe UI", Roboto, Arial, sans-serif; background:var(--bg); color:var(--ink); line-height:1.6; padding-top: env(safe-area-inset-top, 0px); }
-  a { color: var(--accent-dark); }
-  .wrap { max-width: 880px; margin: 0 auto; padding: 0 20px; }
-  header.top { position: sticky; top: 0; background: rgba(246,248,245,.96); border-bottom: 1px solid var(--border); z-index: 10; }
-  header.top .wrap { display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:6px 12px; min-height:58px; padding-top:8px; padding-bottom:8px; }
-  .brand { font-weight:700; color:var(--accent-dark); text-decoration:none; }
-  .brand { white-space:nowrap; font-size:16px; }
-  nav { display:flex; flex-wrap:wrap; gap:4px 14px; }
-  nav a { font-size:14px; color:var(--muted); text-decoration:none; white-space:nowrap; }
-  @media (max-width:520px){ .brand{font-size:15px;} nav a{font-size:13px;} }
-  .hero { padding: 56px 0 40px; }
-  .eyebrow { font-size:14px; color:var(--muted); margin:0 0 8px; }
-  h1 { font-size: clamp(28px, 5vw, 40px); line-height:1.2; margin:0 0 14px; }
-  h1 em { color: var(--accent); font-style: normal; }
-  .lead { font-size: 18px; color: var(--muted); margin: 0 0 20px; }
-  .consultant { margin: 0 0 22px; }
-  .consultant img { display:block; width:100%; max-width:360px; height:auto; border-radius:14px; border:1px solid var(--border); }
-  .consultant figcaption { font-size:13px; color:var(--muted); margin-top:6px; }
-  .disclosure { background:#fff8e6; border:1px solid #f1dfa6; border-radius:10px; padding:12px 14px; font-size:14px; margin: 0 0 22px; }
-  .btn { display:inline-block; padding:12px 20px; border-radius:10px; text-decoration:none; font-weight:600; margin: 4px 8px 4px 0; }
-  .btn.primary { background: var(--accent); color:#fff; }
-  .btn.primary:hover { background: var(--accent-dark); }
-  .btn.ghost { border:1px solid var(--accent); color: var(--accent-dark); }
-  .badges { font-size:14px; color: var(--muted); margin-top: 16px; }
-  section { padding: 40px 0; border-top: 1px solid var(--border); }
-  h2 { font-size: 26px; margin: 0 0 12px; }
-  .grid { display:grid; gap:16px; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); margin-top: 20px; }
-  .card { background: var(--card); border:1px solid var(--border); border-radius: 14px; padding: 20px; }
-  .card h3 { margin: 0 0 8px; font-size: 18px; }
-  .card p { margin: 0 0 10px; color: var(--muted); font-size: 15px; }
-  .tag { font-size: 13px; color: var(--accent-dark); }
-  .note { font-size: 14px; color: var(--muted); background: var(--card); border-left: 3px solid var(--accent); padding: 10px 14px; border-radius: 6px; margin-top: 18px; }
-  .steps { counter-reset: s; list-style:none; padding:0; margin: 20px 0 0; }
-  .steps li { counter-increment: s; background: var(--card); border:1px solid var(--border); border-radius:14px; padding:18px 20px 18px 64px; margin-bottom: 12px; position:relative; }
-  .steps li::before { content: counter(s); position:absolute; left:18px; top:16px; width:30px; height:30px; border-radius:50%; background: var(--accent); color:#fff; display:flex; align-items:center; justify-content:center; font-weight:700; }
-  .steps h3 { margin: 0 0 4px; font-size: 17px; }
-  .steps p { margin: 0; color: var(--muted); font-size: 15px; }
-  .contacts a.link { display:block; background: var(--card); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom: 10px; text-decoration:none; color: var(--ink); }
-  .contacts a.link small { display:block; color: var(--muted); font-size: 14px; }
-  .code { display:inline-block; background:#e9f2ec; padding:2px 10px; border-radius:6px; font-weight:700; }
-  footer { border-top:1px solid var(--border); padding: 28px 0 40px; font-size: 13px; color: var(--muted); }
-  footer p { margin: 0 0 10px; }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#f5f1ea" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#101815" media="(prefers-color-scheme: dark)" />
+  <title>Greenleaf — Личные рекомендации и консультация по эко-средствам</title>
+  <meta name="description" content="Бесплатная индивидуальная консультация по продукции Greenleaf для дома, ухода и здоровья. Подбор 2–3 средств под вашу задачу без давления и навязывания." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #f5f1ea;
+      --bg-alt: #ece6db;
+      --surface: #fffdf9;
+      --surface-soft: rgba(255, 253, 249, 0.72);
+      --text: #1c2420;
+      --text-soft: #4e5953;
+      --text-muted: #76807b;
+      --accent: #2c6e49;
+      --accent-hover: #215437;
+      --accent-light: #e2eee7;
+      --accent-warm: #a67c52;
+      --border: #ddd5c7;
+      --border-soft: rgba(28, 36, 32, 0.08);
+      --shadow-sm: 0 2px 10px rgba(28, 36, 32, 0.04);
+      --shadow-md: 0 12px 32px rgba(28, 36, 32, 0.08);
+      --radius-sm: 10px;
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --font-display: 'Cormorant Garamond', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        --bg: #101815;
+        --bg-alt: #16211d;
+        --surface: #1b2823;
+        --surface-soft: rgba(27, 40, 35, 0.78);
+        --text: #edf2ef;
+        --text-soft: #b6c2bc;
+        --text-muted: #829189;
+        --accent: #56a87a;
+        --accent-hover: #6dc091;
+        --accent-light: rgba(86, 168, 122, 0.16);
+        --accent-warm: #cfa478;
+        --border: #2a3a33;
+        --border-soft: rgba(237, 242, 239, 0.08);
+        --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+        --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.35);
+      }
+    }
+
+    :root[data-theme="dark"] {
+      --bg: #101815;
+      --bg-alt: #16211d;
+      --surface: #1b2823;
+      --surface-soft: rgba(27, 40, 35, 0.78);
+      --text: #edf2ef;
+      --text-soft: #b6c2bc;
+      --text-muted: #829189;
+      --accent: #56a87a;
+      --accent-hover: #6dc091;
+      --accent-light: rgba(86, 168, 122, 0.16);
+      --accent-warm: #cfa478;
+      --border: #2a3a33;
+      --border-soft: rgba(237, 242, 239, 0.08);
+      --shadow-sm: 0 2px 10px rgba(0, 0, 0, 0.25);
+      --shadow-md: 0 14px 36px rgba(0, 0, 0, 0.35);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+      padding-left: env(safe-area-inset-left);
+      padding-right: env(safe-area-inset-right);
+      transition: background-color 0.25s ease, color 0.25s ease;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 1060px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 40;
+      background: var(--surface-soft);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .header-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 68px;
+      gap: 16px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-weight: 700;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--accent-light);
+      color: var(--accent);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .nav a {
+      font-size: 0.92rem;
+      font-weight: 500;
+      color: var(--text-soft);
+      transition: color 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .theme-btn {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      transition: border-color 0.2s, transform 0.15s;
+    }
+
+    .theme-btn:hover {
+      border-color: var(--accent);
+    }
+
+    .btn-sm {
+      padding: 9px 16px;
+      border-radius: 10px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.88rem;
+      font-weight: 600;
+      transition: background-color 0.2s;
+    }
+
+    .btn-sm:hover {
+      background: var(--accent-hover);
+    }
+
+    .hero {
+      padding: 64px 0 56px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.35fr 0.95fr;
+      gap: 36px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-light);
+      color: var(--accent);
+      font-size: 0.84rem;
+      font-weight: 600;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(2.15rem, 4.2vw, 3.35rem);
+      line-height: 1.12;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-lead {
+      font-size: 1.06rem;
+      color: var(--text-soft);
+      max-width: 580px;
+      margin-bottom: 28px;
+    }
+
+    .hero-cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 26px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: 0.95rem;
+      transition: all 0.2s ease;
+      cursor: pointer;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: #fff;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-hover);
+      transform: translateY(-1px);
+    }
+
+    .btn-outline {
+      background: var(--surface);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .hero-trust {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 0.86rem;
+      color: var(--text-muted);
+    }
+
+    .hero-trust span {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .hero-card-label {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-warm);
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .hero-card h2 {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      line-height: 1.25;
+      margin-bottom: 14px;
+    }
+
+    .hero-card p {
+      font-size: 0.94rem;
+      color: var(--text-soft);
+      margin-bottom: 18px;
+    }
+
+    .quote-box {
+      padding: 14px 16px;
+      border-radius: var(--radius-sm);
+      background: var(--bg-alt);
+      border-left: 3px solid var(--accent);
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .section {
+      padding: 64px 0;
+    }
+
+    .section-alt {
+      background: var(--bg-alt);
+      border-top: 1px solid var(--border-soft);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .section-head {
+      max-width: 680px;
+      margin-bottom: 36px;
+    }
+
+    .section-tag {
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .section-head h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3.2vw, 2.5rem);
+      line-height: 1.18;
+      margin-bottom: 12px;
+    }
+
+    .section-head p {
+      color: var(--text-soft);
+      font-size: 1rem;
+    }
+
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-badge {
+      display: inline-block;
+      align-self: flex-start;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--accent-light);
+      color: var(--accent);
+      margin-bottom: 12px;
+    }
+
+    .card h3 {
+      font-size: 1.14rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+
+    .card p {
+      font-size: 0.93rem;
+      color: var(--text-soft);
+    }
+
+    .card-note {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .step-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 700;
+      font-size: 0.92rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .notice {
+      margin-top: 28px;
+      padding: 18px 20px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.88rem;
+      color: var(--text-soft);
+    }
+
+    .notice strong {
+      color: var(--text);
+    }
+
+    .cta-box {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 36px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .cta-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .cta-box h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.85rem, 3vw, 2.45rem);
+      line-height: 1.18;
+      margin-bottom: 12px;
+    }
+
+    .cta-box p {
+      color: var(--text-soft);
+      margin-bottom: 16px;
+    }
+
+    .codeword-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 14px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      border: 1px dashed var(--accent);
+      font-size: 0.9rem;
+      color: var(--text);
+    }
+
+    .codeword-pill strong {
+      color: var(--accent);
+      letter-spacing: 0.04em;
+    }
+
+    .contact-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-btn {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 14px 18px;
+      border-radius: var(--radius-sm);
+      border: 1px solid var(--border);
+      background: var(--bg);
+      transition: all 0.2s ease;
+    }
+
+    .contact-btn:hover {
+      border-color: var(--accent);
+      background: var(--accent-light);
+      transform: translateX(2px);
+    }
+
+    .contact-btn-title {
+      font-weight: 700;
+      font-size: 0.96rem;
+      display: block;
+    }
+
+    .contact-btn-sub {
+      font-size: 0.82rem;
+      color: var(--text-soft);
+    }
+
+    .contact-arrow {
+      font-weight: 700;
+      color: var(--accent);
+      font-size: 1.1rem;
+    }
+
+    .footer {
+      padding: 36px 0 48px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.84rem;
+      color: var(--text-muted);
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .footer-top {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--text-soft);
+      font-weight: 500;
+    }
+
+    @media (max-width: 860px) {
+      .hero-grid,
+      .cta-grid,
+      .grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        display: none;
+      }
+
+      .hero {
+        padding: 42px 0 40px;
+      }
+
+      .cta-box {
+        padding: 28px 22px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-<header class="top">
-  <div class="wrap">
-    <a class="brand" href="#">Greenleaf · Личный подбор</a>
-    <nav>
-      <a href="#catalog">Направления</a>
-      <a href="#eco">Почему эко</a>
-      <a href="#how">Как проходит</a>
-      <a href="#contacts">Связаться</a>
-    </nav>
-  </div>
-</header>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="#" class="brand">
+        <span class="brand-mark">G</span>
+        <span>Greenleaf · Личный подбор</span>
+      </a>
 
-<main>
-  <div class="wrap hero">
-    <p class="eyebrow">Независимый партнёр Greenleaf · Илдус Янбухтин</p>
-    <h1>Подбор <em>эко-средств</em> Greenleaf для дома и семьи</h1>
-    <p class="lead">Помогу выбрать 2–3 средства под вашу задачу: разберём назначение, состав и ориентировочную стоимость. Без навязывания лишних покупок.</p>
+      <nav class="nav" aria-label="Основная навигация">
+        <a href="#catalog">Направления</a>
+        <a href="#eco">Почему эко</a>
+        <a href="#how">Как проходит подбор</a>
+        <a href="#consult">Консультация</a>
+      </nav>
 
-    <figure class="consultant">
-      <img src="ildus.jpg" alt="Илдус Янбухтин, независимый партнёр Greenleaf, с продукцией" width="640" height="640" loading="lazy">
-      <figcaption>Илдус Янбухтин, независимый партнёр Greenleaf</figcaption>
-    </figure>
-
-    <div class="disclosure">
-      <strong>Важно:</strong> я независимый партнёр Greenleaf. Greenleaf — сетевая (многоуровневая) программа: моё вознаграждение зависит от продаж, в том числе от партнёров, которых я приглашаю. Доход не гарантирован. Цены на сайте — рекомендованные розничные цены компании. Покупать или нет, решаете вы, без давления.
-    </div>
-
-    <a class="btn primary" href="#contacts">Подобрать средство</a>
-    <a class="btn ghost" href="#catalog">Посмотреть направления</a>
-
-    <p class="badges">Консультация бесплатна · Покупать не обязательно · Состав указан на упаковке</p>
-  </div>
-
-  <section id="principle">
-    <div class="wrap">
-      <p class="eyebrow">Принцип работы</p>
-      <h2>Сначала задача, потом рекомендация</h2>
-      <p class="lead">В каталоге много позиций, но для быта и ухода обычно хватает нескольких базовых средств с понятным составом и разумным расходом.</p>
-      <p class="note">Если позиция не подходит под ваш запрос или бюджет, я прямо скажу об этом и предложу альтернативу.</p>
-    </div>
-  </section>
-
-  <section id="catalog">
-    <div class="wrap">
-      <p class="eyebrow">Ассортимент</p>
-      <h2>Основные направления</h2>
-      <p class="lead">Подбираю решения под конкретный запрос: от уборки дома до повседневного ухода.</p>
-
-      <div class="grid">
-        <div class="card">
-          <p class="tag">Для дома</p>
-          <h3>Уборка, стирка и посуда</h3>
-          <p>Гели и порошки для стирки, средства для мытья посуды, овощей и фруктов, очистители для кухни и ванной. Подбираем по запаху, формату концентрата и расходу.</p>
-        </div>
-        <div class="card">
-          <p class="tag">Уход за собой</p>
-          <h3>Кожа, волосы и гигиена</h3>
-          <p>Средства для лица, тела, волос и гигиены на мягких моющих основах. Подбор с учётом типа кожи. Если есть аллергия или чувствительность, сначала изучите состав и посоветуйтесь с врачом.</p>
-        </div>
-        <div class="card">
-          <p class="tag">Чаи и уходовые серии</p>
-          <h3>Напитки и уход</h3>
-          <p>Травяные чаи, тканевые маски и базовые уходовые наборы. Это продукты для ухода и повседневного удовольствия, а не лекарства: они не лечат и не заменяют медицинскую помощь.</p>
-        </div>
+      <div class="header-actions">
+        <button class="theme-btn" id="themeToggle" type="button" aria-label="Переключить тему" title="Сменить тему">◐</button>
+        <a href="#consult" class="btn-sm">Написать</a>
       </div>
     </div>
-  </section>
+  </header>
 
-  <section id="eco">
-    <div class="wrap">
-      <p class="eyebrow">Подход</p>
-      <h2>Почему я выбираю эко-средства</h2>
-      <p class="lead">Для меня «эко» — это критерий отбора: что каждый день контактирует с кожей, посудой и воздухом в доме.</p>
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">Независимый партнёр Greenleaf · Илдус Янбухтин</div>
+          <h1>Спокойный подбор <em>эко-средств</em> для дома и семьи</h1>
+          <p class="hero-lead">
+            Помогаю разобраться в ассортименте Greenleaf и выбрать 2–3 позиции под вашу конкретную задачу — с разбором состава, примерной стоимостью и без навязывания лишних покупок.
+          </p>
+          <div class="hero-cta-group">
+            <a href="https://t.me/greenleaf_my_pk1_bot?start=checklist" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Получить чек-лист в боте</a>
+            <a href="#consult" class="btn btn-outline">Все способы связи</a>
+          </div>
+          <div class="hero-trust">
+            <span>✓ Консультация бесплатна</span>
+            <span>✓ Без обязательств к заказу</span>
+            <span>✓ Реальный опыт применения</span>
+          </div>
+        </div>
 
-      <div class="grid">
-        <div class="card">
-          <h3>Понятный состав</h3>
-          <p>В основе растительные мягкие моющие вещества, без агрессивного хлора. Точный состав каждой позиции смотрите на упаковке или в описании продукта.</p>
+        <aside class="hero-card">
+          <div class="hero-card-label">Принцип работы</div>
+          <h2>Сначала задача — потом рекомендация</h2>
+          <p>
+            В каталоге сотни позиций, но для ежедневного быта и ухода обычно достаточно нескольких базовых средств с понятным составом и экономичным расходом.
+          </p>
+          <div class="quote-box">
+            «Если какая-то позиция не подходит под ваш запрос или бюджет — я прямо об этом скажу и предложу рабочую альтернативу».
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="catalog" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Ассортимент</div>
+          <h2>Основные направления продукции</h2>
+          <p>
+            Подбираю решения точечно под запрос: от безопасной уборки дома до повседневного ухода и травяных сборов.
+          </p>
         </div>
-        <div class="card">
-          <h3>Концентраты</h3>
-          <p>Многие средства для дома продаются в виде концентратов. Одного флакона обычно хватает надолго, а упаковки меньше.</p>
-        </div>
-        <div class="card">
-          <h3>Осознанный выбор</h3>
-          <p>Советую покупать то, что нужно именно вам, а не набирать всё подряд. Меньше импульсивных покупок — меньше лишних флаконов.</p>
+
+        <div class="grid-3">
+          <article class="card">
+            <div>
+              <span class="card-badge">Для дома</span>
+              <h3>Уборка, стирка и посуда</h3>
+              <p>
+                Концентрированные гели и порошки для стирки, средства для мытья посуды, овощей и фруктов, очистители для кухни и ванной без резких химических отдушек.
+              </p>
+            </div>
+            <div class="card-note">Подходит для семей с детьми и чувствительной кожей рук</div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="card-badge">Уход за собой</span>
+              <h3>Кожа, волосы и гигиена</h3>
+              <p>
+                Базовый уход для лица и тела, шампуни, зубные пасты, средства интимной и детской гигиены на мягких моющих основах и растительных экстрактах.
+              </p>
+            </div>
+            <div class="card-note">Подбор с учётом типа кожи и привычного ухода</div>
+          </article>
+
+          <article class="card">
+            <div>
+              <span class="card-badge">Красота и здоровье</span>
+              <h3>Чаи, напитки и уходовые серии</h3>
+              <p>
+                Травяные и функциональные чаи (включая чай из кукурузных рылец), тканевые маски, сыворотки и базовые уходовые наборы для ежедневной поддержки.
+              </p>
+            </div>
+            <div class="card-note">Не является лекарственным средством; учитываем противопоказания</div>
+          </article>
         </div>
       </div>
+    </section>
 
-      <p class="note">«Эко» здесь — мой личный критерий отбора, а не отдельная сертификация каждой позиции каталога.</p>
+    <section id="eco" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Подход</div>
+          <h2>Почему я выбираю эко-средства</h2>
+          <p>
+            Для меня «эко» — это не модный ярлык на упаковке, а практичный подход к тому, что каждый день контактирует с кожей, посудой и воздухом в квартире.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div>
+              <h3>Понятный состав</h3>
+              <p>
+                Мягкие ПАВ растительного происхождения, отсутствие агрессивного хлора и едких отдушек. Средства легко смываются водой и не оставляют резкого запаха на белье и посуде.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3>Меньше нагрузки на воду и дом</h3>
+              <p>
+                Биоразлагаемые формулы бережнее относятся к бытовым стокам и септикам, а в квартире после уборки остаётся ощущение свежести, а не «запаха чистоты» из баллончика.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <h3>Осознанное потребление</h3>
+              <p>
+                Большинство средств для дома — концентраты. Одного флакона хватает надолго, поэтому дома меньше пластиковых бутылок и лишних импульсивных покупок.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="notice">
+          <strong>Важное уточнение:</strong> в этом разделе термин «эко-средства» отражает мой личный критерий отбора и пользовательский опыт, а не наличие отдельной международной эко-сертификации у каждой позиции каталога.
+        </div>
+      </div>
+    </section>
+
+    <section id="how" class="section section-alt">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-tag">Процесс</div>
+          <h2>Как проходит бесплатная консультация</h2>
+          <p>
+            Никаких долгих презентаций и обязательных стартовых пакетов — весь процесс занимает 5–10 минут переписки.
+          </p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div>
+              <div class="step-num">1</div>
+              <h3>Описываете задачу</h3>
+              <p>
+                Напишите в удобный мессенджер, что именно ищете: например, средство для стирки детского белья, мягкий шампунь или замену бытовой химии на кухне.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="step-num">2</div>
+              <h3>Получаете 2–3 варианта</h3>
+              <p>
+                Подбираю несколько подходящих позиций из каталога Greenleaf, кратко объясняю особенности состава, расход и ориентировочную стоимость.
+              </p>
+            </div>
+          </div>
+
+          <div class="card">
+            <div>
+              <div class="step-num">3</div>
+              <h3>Решаете сами</h3>
+              <p>
+                Если варианты подходят — подскажу, как удобнее оформить заказ или получить доступ к партнёрским ценам. Если нет — просто останемся на связи.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="consult" class="section">
+      <div class="container">
+        <div class="cta-box">
+          <div class="cta-grid">
+            <div>
+              <div class="section-tag">Связаться</div>
+              <h2>Напишите — подберём решение под ваш запрос</h2>
+              <p>
+                Выберите любой удобный канал связи. Если хотите сразу получить краткий гид и автоматический подбор в Telegram — запустите бота с кодовым словом.
+              </p>
+              <div class="codeword-pill">
+                <span>Кодовое слово для старта:</span>
+                <strong>ЭКО</strong>
+              </div>
+            </div>
+
+            <div class="contact-stack">
+              <a href="https://wa.me/79871438993?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D1%8D%D0%BA%D0%BE-%D1%81%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0%20Greenleaf%20(%D0%AD%D0%9A%D0%9E)" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <span class="contact-btn-title">Написать в WhatsApp</span>
+                  <span class="contact-btn-sub">+7 987 143-89-93 · Личная переписка</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a href="https://vk.com/id641428138" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <span class="contact-btn-title">Страница ВКонтакте</span>
+                  <span class="contact-btn-sub">vk.com/id641428138 · Сообщения и вопросы</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a href="https://t.me/greenleaf_my_pk1_bot?start=checklist" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <span class="contact-btn-title">Telegram-бот Greenleaf: чек-лист и подбор</span>
+                  <span class="contact-btn-sub">@greenleaf_my_pk1_bot · Бесплатный чек-лист и поиск товаров</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a href="https://t.me/greenleaf_my_pk1_bot?start=partner" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <span class="contact-btn-title">Удалённый доход в команде Greenleaf</span>
+                  <span class="contact-btn-sub">@greenleaf_my_pk1_bot · Работа с телефона без спама и уговоров</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+
+              <a href="https://max.ru/join/fJXDipptL5totkoqROFn0lYlsEgQQnDMlgVXEHJs4PY" class="contact-btn" target="_blank" rel="noopener noreferrer">
+                <div>
+                  <span class="contact-btn-title">Чат «Лаборатория отзывов» в Max</span>
+                  <span class="contact-btn-sub">Реальные отзывы и опыт использования продукции</span>
+                </div>
+                <span class="contact-arrow">→</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-top">
+        <span>Илдус Янбухтин · Независимый партнёр Greenleaf</span>
+        <span>Бесплатные рекомендации по продукции</span>
+      </div>
+      <p>
+        Информация на странице носит ознакомительный характер и не является публичной офертой. Продукция не является лекарственным средством.
+      </p>
+      <p>
+      </p>
     </div>
-  </section>
+  </footer>
 
-  <section id="how">
-    <div class="wrap">
-      <p class="eyebrow">Процесс</p>
-      <h2>Как проходит бесплатная консультация</h2>
-      <p class="lead">Без долгих презентаций и обязательных стартовых пакетов. Обычно хватает 5–10 минут переписки.</p>
+  <script>
+    (function () {
+      const root = document.documentElement;
+      const btn = document.getElementById('themeToggle');
+      const saved = localStorage.getItem('gl_theme');
+      if (saved === 'light' || saved === 'dark') {
+        root.setAttribute('data-theme', saved);
+      }
 
-      <ol class="steps">
-        <li>
-          <h3>Опишите задачу</h3>
-          <p>Напишите, что ищете: например, средство для стирки детского белья, мягкий шампунь или замену бытовой химии на кухне.</p>
-        </li>
-        <li>
-          <h3>Получите 2–3 варианта</h3>
-          <p>Подберу позиции из каталога Greenleaf и коротко расскажу о составе, расходе и ориентировочной стоимости.</p>
-        </li>
-        <li>
-          <h3>Решаете сами</h3>
-          <p>Если варианты подходят, подскажу, как оформить заказ. Если нет, просто останемся на связи. Давления не будет.</p>
-        </li>
-      </ol>
-    </div>
-  </section>
+      btn.
 
-  <section id="contacts" class="contacts">
-    <div class="wrap">
-      <p class="eyebrow">Связаться</p>
-      <h2>Напишите, подберём решение под ваш запрос</h2>
-      <p class="lead">Выберите удобный канал связи. Для краткого гида и подбора в Telegram напишите кодовое слово <span class="code">ЭКО</span> боту.</p>
-
-      <a class="link" href="https://t.me/greenleaf_my_pk1_bot" target="_blank" rel="noopener noreferrer">
-        Telegram-бот @greenleaf_my_pk1_bot
-        <small>Напишите слово «ЭКО», чтобы получить гид и контакты</small>
-      </a>
-      <a class="link" href="https://wa.me/79871438993?text=%D0%97%D0%B4%D1%80%D0%B0%D0%B2%D1%81%D1%82%D0%B2%D1%83%D0%B9%D1%82%D0%B5!%20%D0%A5%D0%BE%D1%87%D1%83%20%D0%BF%D0%BE%D0%B4%D0%BE%D0%B1%D1%80%D0%B0%D1%82%D1%8C%20%D1%8D%D0%BA%D0%BE-%D1%81%D1%80%D0%B5%D0%B4%D1%81%D1%82%D0%B2%D0%B0%20Greenleaf%20(%D0%AD%D0%9A%D0%9E)" target="_blank" rel="noopener noreferrer">
-        WhatsApp +7 987 143-89-93
-        <small>Личная переписка</small>
-      </a>
-      <a class="link" href="https://vk.com/id641428138" target="_blank" rel="noopener noreferrer">
-        Страница ВКонтакте
-        <small>Сообщения и вопросы</small>
-      </a>
-      <a class="link" href="https://max.ru/join/fJXDipptL5totkoqROFn0lYlsEgQQnDMlgVXEHJs4PY" target="_blank" rel="noopener noreferrer">
-        Чат в Max «Лаборатория отзывов»
-        <small>Отзывы участников. Это личный опыт, а не гарантия результата</small>
-      </a>
-    </div>
-  </section>
-</main>
-
-<footer>
-  <div class="wrap">
-    <p>Илдус Янбухтин · Независимый партнёр Greenleaf. Вознаграждение зависит от продаж и от приглашённых партнёров. Доход не гарантирован.</p>
-    <p>Официальные документы компании: <a href="https://greenleaf-global.com/data/files/content/9627/26111915398NaOQecHIo.pdf" target="_blank" rel="noopener noreferrer">маркетинг-план</a> · <a href="https://greenleaf-global.com/data/files/content/9627/26081210557b5zuTZzqo.pdf" target="_blank" rel="noopener noreferrer">кодекс дистрибьютора</a></p>
-    <p>Для вопросов о программе: info@greenleaf-global.com</p>
-    <p>Информация на странице носит ознакомительный характер и не является публичной офертой. Продукция не является лекарственным средством, не заменяет консультацию врача и не гарантирует результат.</p>
-  </div>
-</footer>
-
+cat << 'EOF' >> ~/greenleaf-site/index.html
+addEventListener('click', function () {
+        const current = root.getAttribute('data-theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isDark = current ? current === 'dark' : prefersDark;
+        const next = isDark ? 'light' : 'dark';
+        root.setAttribute('data-theme', next);
+        localStorage.setItem('gl_theme', next);
+      });
+    })();
+  </script>
 </body>
 </html>
